@@ -1,4 +1,4 @@
-#include "Data.h"
+#include "../Data.h"
 
 #include <cmath>
 #include <gtest/gtest.h>
