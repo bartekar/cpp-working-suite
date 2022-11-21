@@ -10,11 +10,11 @@ enable_testing()
 add_subdirectory(googletest)
 
 set(HEADERS 
-    data.h
+    Data.h
 )
 set(SOURCES 
-    main.cpp 
-    data.cpp
+    Main.cpp 
+    Data.cpp
 )
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
