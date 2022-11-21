@@ -1,4 +1,4 @@
-#include "data.h"
+#include "Data.h"
 #include <csignal>
 #include <cmath>
 #include <iostream>

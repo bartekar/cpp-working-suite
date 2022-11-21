@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 project(bbox_collision C CXX)
 
@@ -10,16 +10,31 @@ enable_testing()
 add_subdirectory(googletest)
 
 set(HEADERS 
-    data.h
+    Data.h
 )
 set(SOURCES 
-    main.cpp 
-    data.cpp
+    Main.cpp 
+    Data.cpp
 )
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
-add_subdirectory(test)
+#add_subdirectory(test)
+set(THIS Tests)
+set(SOURCES
+    DataTests.cpp
+)
+
+add_executable(${THIS} ${SOURCES})
+target_link_libraries(${THIS} PUBLIC
+    gtest_main
+    bbox_collision
+)
+
+add_test(
+    NAME ${THIS}
+    COMMAND ${THIS}
+)
 
 #add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
 #target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE include)
