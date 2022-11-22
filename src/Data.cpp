@@ -115,6 +115,33 @@ bool BBox::containsPoint(Point* p)
 	return false;
 }
 
+bool BBox::intersectLine(Point* p, Point* q)
+{
+        // tbd
+	float w2 = width / 2.0f;
+	float h2 = height / 2.0f;
+	float sinPhi = sin(phi);
+	float cosPhi = cos(phi);
+
+	Point pA = Point(cosPhi * (-w2) - sinPhi * (-h2) + cx, sinPhi * (-w2) + cosPhi * (-h2) + cy);
+	Point pB = Point(cosPhi * (+w2) - sinPhi * (-h2) + cx, sinPhi * (+w2) + cosPhi * (-h2) + cy);
+	Point pC = Point(cosPhi * (+w2) - sinPhi * (+h2) + cx, sinPhi * (+w2) + cosPhi * (+h2) + cy);
+	Point pD = Point(cosPhi * (-w2) - sinPhi * (+h2) + cx, sinPhi * (-w2) + cosPhi * (+h2) + cy);
+
+        Point r= = Point(0.0f, 0.0f);
+        Point::sub(q, p, q);
+	
+	Point pAB = Point(0.0f, 0.0f);
+	Point::sub(&pB, &pA, &pAB);
+	Point pAP = Point(0.0f, 0.0f);
+	Point::sub(p, &pA, &pAP);
+	Point pAD = Point(0.0f, 0.0f);
+	Point::sub(&pD, &pA, &pAD);
+
+        return true;
+
+}
+
 bool intersectsBBox(BBox*)
 {
 	raise(SIGINT);

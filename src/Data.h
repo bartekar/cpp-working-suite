@@ -27,6 +27,7 @@ public:
 	~BBox();
 	float area();
 	bool containsPoint(Point*);
+        bool intersectLine(Point*, Point*);
 	bool intersectsBBox(BBox*);
 	bool containsBBox(BBox*);
 private:
