@@ -7,6 +7,7 @@ set(SOURCES
 )
 
 add_executable(${THIS} ${SOURCES})
+target_include_directories(${THIS} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
 target_link_libraries(${THIS} PUBLIC
     gtest_main
     bbox_collision
