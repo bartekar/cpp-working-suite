@@ -15,7 +15,7 @@ struct Box
 
 	virtual void SetUp() override
 	{
-		boxDiamond = new BBox(0.0f, 0.0f, 2.0f, 2.0f, PI / 4.0f);
+		boxDiamond = new BBox(0.0f, 0.0f, 2.0f, 2.0f, PI / 4.0f); // see below for reference
 		boxRect = new BBox(0.0f, 0.0f, 10.0f, 1.0f, 0.0f);
 		boxMoved = new BBox(-3.0f, 3.0f, 1.0f, 1.0f, 0.0f);
 		boxRandom = new BBox(5.0f, 5.0f, 8.0f, 4.0f, PI / 8.0f); // pi/8 -> 22.5 degree
@@ -33,6 +33,40 @@ struct Box
 			delete boxRandom;
 	}
 };
+/* boxDiamond:
+                 A y
+                 |
+                 *.......... sqrt(2.0)
+               * | *       .
+             *   |   *     .
+           *     |     *   .
+         *       |       * .
+   - - * - - - - + - - - - * - > x
+         *       |       *
+           *     |     *
+             *   |   *
+               * | *
+                 *
+                 |
+*/
+
+/* boxRandom
+
+                 A y        *
+                 |     *
+                 |*7          *
+              *  |
+         *       | 6            *
+    *            |
+*1 - 2 - 3 - 4 - + - 6 - 7 - 8 - 9*- - > x
+                 |            *
+  *              | 4     *
+                 |   *
+    *           *| 3
+           *     |
+      *          |
+
+*/
 
 // if tests pass stdout is suppressed
 
